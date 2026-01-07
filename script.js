@@ -156,6 +156,7 @@ const dictionary = {
     "ruudu ümbermõõt": "пеметр квадрата",
     "ruudu diagonaal": "диагональ квадрата",
     "kolmnurk": "треугольник",
+    "külg": "сторона",
     "lähiskülg": "прилежащая сторона",
     "vastaskülg": "противолежащая сторона",
     "erikülgne kolmnurk": "разносторонний треугольник",
@@ -395,3 +396,4 @@ document.addEventListener("click", function (e) {
 suggestions.addEventListener("click", function (e) {
     e.stopPropagation();
 });
+
