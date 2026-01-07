@@ -298,16 +298,15 @@ const searchbtn = document.getElementById("searchbtn");
 const print = document.getElementById("print");
 const suggestions = document.getElementById("suggestions");
 
-// Проверка языка ввода
+// Kontroll, kas tekstis on vene tähed
 function isRussian(text) {
     return /[а-яё]/i.test(text);
 }
 
-// Поиск слова и отображение результата
+// leitud sõna otsing
 function searchWord() {
     const input = searchinput.value.trim().toLowerCase();
-    suggestions.innerHTML = ""; // скрываем подсказки
-
+    suggestions.innerHTML = "";
     if (!input) {
         print.innerHTML = "<p>Palun sisesta otsitav sõna.</p>";
         return;
@@ -332,15 +331,15 @@ function searchWord() {
     print.innerHTML = "<p>Sõna ei leitud.</p>";
 }
 
-// Enter в поле
+// Enter
 searchinput.addEventListener("keydown", e => {
     if (e.key === "Enter") searchWord();
 });
 
-// Кнопка поиска
+// Leitud sõna otsing nupuga
 searchbtn.addEventListener("click", searchWord);
 
-// Автоподсказки
+// AutoComplete
 searchinput.addEventListener("input", function () {
     const value = this.value.trim().toLowerCase();
     suggestions.innerHTML = "";
@@ -358,7 +357,7 @@ searchinput.addEventListener("input", function () {
                 : etLower.includes(value);
         });
 
-    // Точные совпадения первыми
+    // Täpne vastus esile
     results.sort(([etA, ruA], [etB, ruB]) => {
         const a = russian ? ruA.toLowerCase() : etA.toLowerCase();
         const b = russian ? ruB.toLowerCase() : etB.toLowerCase();
@@ -381,7 +380,7 @@ searchinput.addEventListener("input", function () {
     });
 });
 
-// Закрытие подсказок при клике вне поля
+// Sulgemine klõpsates väljaspool
 document.addEventListener("click", function (e) {
     const isClickInside =
         searchinput.contains(e.target) ||
@@ -392,8 +391,7 @@ document.addEventListener("click", function (e) {
     }
 });
 
-// Предотвращение закрытия при клике по подсказкам
+// Prevent closing when clicking on tooltips
 suggestions.addEventListener("click", function (e) {
     e.stopPropagation();
 });
-
