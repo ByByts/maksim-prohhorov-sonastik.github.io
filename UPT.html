@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="et">
+<head>
+    <title>Maksim Prohhorov UPT</title>
+    <link rel="icon" type="image/x-icon" href="/images/ico.ico">
+    <link rel="stylesheet" href="design.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+    <body>
+        <header style="width: 100%">
+            <h1 class="title">Eesti-Vene matemaatikasõnastik</h1>
+           <!-- <a href="https://www.johvig.ee/" target="_blank">
+                <img src="images\johvi-gymnaasium.png" alt="Jõhvi Gümnaasium" class="logo">
+            </a> -->
+        </header>
+        <hr>
+        <div class="searchbox">
+            <label class="label" for="searchinput" style="font-family: system-ui; ">Vajuta siia:</label>
+            <div class="inputsug">
+                <input class="input" id="searchinput" type="text" size="24" placeholder="Otsi tundmatute sõnade tõlkeid"></input>
+                <ul id="suggestions" class="suggestions"></ul>
+            </div>
+            <button class="button" id="searchbtn" type="button" onclick="searchWord()"><img src="images/109164.png" alt="Otsi" width="20px" height="20px"></button>
+        </div>
+        <h3 id="print"></h3>
+        <script src="script.js"></script>
+        <footer>
+            <div class="footer__grid">
+                <div class="footer__column">
+                    <span class="footer__left">Maksim Prohhorov 11.d</span>
+                </div>
+                <div class="footer__column">
+                    <span class="footer__center"><a href="https://www.johvig.ee/" style="color:white;" target="_blank">Jõhvi Gümnaasium</a></span>
+                </div>
+                <div class="footer__column">
+                    <span class="footer__right"><a href="Info.html" style="color: white;">Sõnastikust</a></span>
+                    <!-- <span class="footer__right">Teatage veast sellele e-posti aadressile:<br><a href="mailto:maksiprohhorov@gmail.com">maksiprohhorov@gmail.com</a><br></span> -->
+                </div>
+            </div>
+        </footer>
+    </body>
+</html>
