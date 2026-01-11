@@ -305,8 +305,15 @@ function isRussian(text) {
 
 // leitud sõna otsing
 function searchWord() {
+
+    if (suggestions.children.length > 0) {
+        const firstSuggestion = suggestions.children[0].textContent;
+        searchinput.value = firstSuggestion;
+    }
+
     const input = searchinput.value.trim().toLowerCase();
     suggestions.innerHTML = "";
+
     if (!input) {
         print.innerHTML = "<p>Palun sisesta otsitav sõna.</p>";
         return;
@@ -315,13 +322,10 @@ function searchWord() {
     const russian = isRussian(input);
 
     for (const [et, ru] of Object.entries(dictionary)) {
-        const etLower = et.toLowerCase();
-        const ruLower = ru.toLowerCase();
-
         if (
             russian
-                ? ruLower.includes(input)
-                : etLower.includes(input)
+                ? ru.toLowerCase() === input
+                : et.toLowerCase() === input
         ) {
             print.innerHTML = `<p><strong>${et}</strong> - ${ru}</p>`;
             return;
